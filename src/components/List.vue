@@ -1,25 +1,28 @@
 <template>
   <div class="list-container">
-    <table>
-      <tr>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Sobrenome</th>
-        <th>Status</th>
-        <th>Avaliações</th>
-      </tr>
-      <tr v-for="(user, index) in users" :key="index">
-        <td>{{user.id}}</td>
-        <td>{{user.name.first}}</td>        
-        <td>{{user.name.last}}</td>
-        <td>{{user.active}}</td>
-        <td>
-            <span v-for="(rating, ind) in user.rating" :key="ind">
-              <span v-if="rating != null">{{ rating }}</span>
-            </span>
-        </td>
-      </tr>
-    </table>
+    <ul class="user-list">
+      <li v-for="(user, index) in activeUsers" :key="index" class="user">
+        <span class="user__first-name">{{ user.name.first }}</span>
+        <span class="user__last-name">{{user.name.last}}</span>
+        <table class="user-data closed">
+          <tr>
+            <th>Id</th>
+            <th>Status</th>
+            <th>Avaliações</th>
+          </tr>
+          <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.active}}</td>
+            <td>
+                <span v-for="(rating, ind) in user.rating" :key="ind">
+                  {{ rating }}
+                </span>
+            </td>
+          </tr>
+        </table>
+      </li>
+    </ul>
+    
   </div>
 </template>
 
@@ -31,6 +34,11 @@ export default {
   data(){
     return {
       users: Users
+    }
+  },
+  computed: {
+    activeUsers: function() {
+      return this.users.filter(u => u.active == 1 );
     }
   }
 }
