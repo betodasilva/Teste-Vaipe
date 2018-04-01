@@ -18,6 +18,11 @@
     }
 }
 
+.header {
+    margin-top: 2em;
+    margin-bottom: 4em;
+}
+
 .user-list {
     margin: 0;
     list-style: none;     
@@ -45,7 +50,15 @@
     &:hover >.user-info >.user__last-name,
     &:hover >.user-info >.user__id { opacity: 1; }
 
-    
+    &.add-new {
+        margin-bottom: 40px;
+        &.open-data { 
+            max-height: 100%; 
+            border-bottom: none;
+        }
+        
+        >.title { margin-left: 20px;}
+    }    
 }
 
 .user-info {
@@ -95,3 +108,14 @@
 }
 
 .user__rating:not(:last-child) { margin-right: 5px; }
+
+
+form.user-data {
+    padding-top: 1em; 
+}
+
+span.title {
+    font-size: 22px;
+    font-weight: 700;
+    color: $color-focus;
+}
