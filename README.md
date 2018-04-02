@@ -14,10 +14,8 @@ Metodos:
 
 Metodos:
     _addUser_ - Adiciona novo usuário para a lista existente dentro do componente List
+    
 Computed:
     Mantém sicronização de usuários com o componente List
 
-## Recursos Utilizados
 
-- SASS
-- Kube css
