@@ -3,31 +3,7 @@
     <ul class="user-list">
        <li class="user add-new" v-on:click="openUserData($event)">
         <span class="title">Adicionar novo usuário</span>
-        <form @submit.prevent="addUser" class="user-data row gutters">
-          <input type="text" name="first-name" placeholder="Primeiro nome" class="col col-6" v-model="newUser.name.first">
-          <input type="text" name="last-name" placeholder="Sobrenome" class="col col-6" v-model="newUser.name.last">
-          <fieldset class="col col-12">
-            <h5>Avaliações</h5>
-            <div class="row gutters">
-              <div class="col col-4">
-                <label for="rating-1">Primeira Nota</label>
-                <input type="number" name="rating-1" max="10" v-model="newUser.rating[0]">
-              </div>
-              <div class="col col-4">
-                <label for="rating-2">Segunda Nota</label>
-                <input type="number" name="rating-2" max="10" v-model="newUser.rating[1]">
-              </div>
-              <div class="col col-4">
-                <label for="rating-3">Terceira Nota</label>
-                <input type="number" name="rating-3" max="10" v-model="newUser.rating[2]">
-              </div>
-            </div>
-          </fieldset>
-          <div class="col col-12">
-            <button type="submit" class="button big">Adicionar</button>
-          </div>
-        
-        </form>
+        <Form />
       </li>
       <li v-for="(user, index) in users" :key="index" class="user" v-on:click="openUserData($event)">
         <div class="user-info">
@@ -67,21 +43,14 @@
 </template>
 
 <script>
-import Users from '../../public/user.json';
+import Users from '../../public/user.json'
+import Form from './Form.vue'
 
 export default {
   name: 'List',
   data(){
     return {
       users: Users,
-      newUser: {
-        id: Number,
-        name: {
-          first: '',
-          last: ''
-        },
-        rating: []
-      }
     }
   },
   methods: {
@@ -94,12 +63,10 @@ export default {
       }
       
     },
-    addUser() {
-      const newID = this.users[this.users.length -1].id + 1;
-      this.newUser.id = newID;
-      this.users.push(this.newUser);
-    }
   },
+  components: {
+    Form
+  }
 
 }
 </script>
