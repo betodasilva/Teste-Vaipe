@@ -21,6 +21,11 @@
 .header {
     margin-top: 2em;
     margin-bottom: 4em;
+    @media (min-width: 1024px) {
+        .header-title {
+            text-align: right;
+        }
+    }
 }
 
 .user-list {
