@@ -2,9 +2,10 @@
   <div class="list-container">
     <ul class="user-list">
        <li class="user add-new" v-on:click="openUserData($event)">
-        <span class="title">Adicionar novo usuário</span>
+        <span class="title">Adicionar novo avaliador</span>
         <Form />
       </li>
+      <h5>Lista de avaliadores</h5>
       <li v-for="(user, index) in users" :key="index" class="user" v-on:click="openUserData($event)">
         <div class="user-info">
           <span class="user__first-name">{{ user.name.first }}</span>
@@ -27,7 +28,7 @@
             <td>
                 <span v-for="(rating, ind) in user.rating" :key="ind" class="user__rating label">
                   #{{ind +1}}
-                  <span class="label badge focus">
+                  <span class="label badge success">
                     {{ rating }}
                   </span>
                 </span>
