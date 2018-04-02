@@ -1,6 +1,6 @@
-#DOC
+# Pequena Documentação para o Teste Vaipe
 
-##Componentes
+## Componentes
 
 **List.vue**
 Importa JSON de usuários
